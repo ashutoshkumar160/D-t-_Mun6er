@@ -7,11 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.stackroute.main.MainApplication;
-import com.stackroute.query.QueryExecutor;
 
 public class CsvReader {
-
-	static String csvFile = "/home/ashutosh/csv/Emp.csv";
 
 	private static long rowid = 1;
 
@@ -27,10 +24,9 @@ public class CsvReader {
 
 	// removed String csvFile parameter from readCsvFile()
 	public void readCsvFile() throws FileNotFoundException {
-		br = new BufferedReader(new FileReader(csvFile));
+		br = new BufferedReader(new FileReader(MainApplication.csvFile));
 		getHeader();
 		getBody();
-
 	}
 
 	public String[] getHeader() {
@@ -44,7 +40,6 @@ public class CsvReader {
 	}
 
 	public void getBody() {
-
 		try {
 			while ((line = br.readLine()) != null) {
 				lineArray = line.split("\\s*,\\s*");

@@ -1,6 +1,5 @@
 package com.stackroute.query;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -52,7 +51,6 @@ public class JavaScriptRunner {
 				expression = expression + s;
 			}
 			Boolean res = (Boolean) engine.eval(expression);
-			System.out.println(res);
 			if (res == true) {
 				continue;
 			}

@@ -1,9 +1,6 @@
 package com.stackroute.main;
 
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 import javax.script.ScriptException;
 
@@ -23,22 +20,11 @@ public class MainApplication {
 
 		QueryExecutor executor = new QueryExecutor();
 		executor.queryExec();
+
 		JavaScriptRunner runner = new JavaScriptRunner();
 		runner.queryRun();
 
-		Iterator<Map.Entry<Long, HashMap<String, String>>> parent = CsvReader.tableMap.entrySet().iterator();
-		while (parent.hasNext()) {
-			Map.Entry<Long, HashMap<String, String>> parentPair = parent.next();
-
-			Iterator<Map.Entry<String, String>> child = (parentPair.getValue()).entrySet().iterator();
-			while (child.hasNext()) {
-				Map.Entry childPair = child.next();
-
-				System.out.println("Key: " + childPair.getKey() + " Value: " + childPair.getValue());
-
-			}
-		}
+		MapIterator.printMap();
 
 	}
-
 }
